@@ -10,11 +10,11 @@ server.starttls()
 
 def send_notifying_mail(mail_user: str = "", mail_password: str = "") -> None:
     cuerpo="Hola desde colab"
-    msg['From']=os.getenv('USER_GMAIL')
-    msg['To']=os.getenv('USER_GMAIL')
+    msg['From']=mail_user
+    msg['To']=mail_user
     msg['Subject']='Hola'
     msg.set_content(cuerpo)
-    server.login(user_gmail,password_gmail)
+    server.login(mail_user,mail_password)
     server.send_message(msg)
     server.quit()
 
